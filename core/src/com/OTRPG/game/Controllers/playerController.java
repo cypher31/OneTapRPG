@@ -1,5 +1,5 @@
 package com.OTRPG.game.Controllers;
 
-public class Player {
+public class playerController {
 
 }
