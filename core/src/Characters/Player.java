@@ -1,16 +1,18 @@
 package Characters;
 
+import Characters.Player.State;
+
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class Player {
 	
 	public enum State {
-		RUNNING, JUMPING, FALLING, DYING, ATTACKING
+		RUNNING, JUMPING, FALLING, DYING, ATTACKING, TURNING
 	}
 	
-	static final float SPEED = 2f;
-	static final float JUMP_VELOCITY = 1f;
+	public static final float SPEED = 2f;
+	public static final float JUMP_VELOCITY = 1f;
 	public static final float SIZE = 0.5f;
 	
 	Vector2 position = new Vector2();
@@ -34,6 +36,22 @@ public class Player {
 	public Vector2 getPosition() {
 		// TODO Auto-generated method stub
 		return position;
+	}
+
+	public void setState(State newState) {
+		this.state = newState;
+	}
+
+	public void update(float delta) {
+		position.add(velocity.cpy().scl(delta));
+	}
+
+	public Vector2 getVelocity() {
+		return velocity;
+	}
+
+	public static float getSPEED() {
+		return SPEED;
 	}
 
 }

@@ -26,6 +26,7 @@ public class testWorld {
 	
 	private void createTestWorld(){
 		player = new Player(new Vector2(7,2));
+		player.getVelocity().x = player.SPEED;
 		
 		for(int i = 0; i < 16; i++){
 			blocks.add(new testBlocks(new Vector2(i, 0)));

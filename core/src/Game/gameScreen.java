@@ -1,8 +1,11 @@
 package Game;
 
+import sun.security.x509.DeltaCRLIndicatorExtension;
 import Stages.testWorld;
 
+import com.OTRPG.game.Controllers.playerController;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -11,12 +14,21 @@ public class gameScreen implements Screen, InputProcessor{
 	
 	private testWorld world;
 	private worldRenderer renderer;
+	private playerController pController;
+	
+	private float timePressed = .25f;
+	public static long beginTime;
+	public static float elapsedTime;
+	
+	private int width, height;
 
 	@Override
 	public void show() {
 		// TODO Auto-generated method stub
 		world = new testWorld();
 		renderer = new worldRenderer(world, true);
+		pController = new playerController(world);
+		Gdx.input.setInputProcessor(this);
 	}
 
 	@Override
@@ -24,6 +36,8 @@ public class gameScreen implements Screen, InputProcessor{
 		// TODO Auto-generated method stub
 		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		pController.update(delta);
 		renderer.render();
 	}
 
@@ -57,14 +71,21 @@ public class gameScreen implements Screen, InputProcessor{
 
 	@Override
 	public boolean keyDown(int keycode) {
-		// TODO Auto-generated method stub
-		return false;
+		if (keycode == Keys.SPACE){
+			playerController.buttonPressed();
+			beginTime = System.nanoTime();
+			playerController.buttonHeld();
 	}
+		return true;
+}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		// TODO Auto-generated method stub
-		return false;
+		if (keycode == Keys.SPACE)
+			playerController.buttonReleased();
+			playerController.buttonHeldRelease();
+			beginTime = 0;
+		return true;
 	}
 
 	@Override
