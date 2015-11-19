@@ -21,6 +21,8 @@ public class playerController {
 	private testWorld world;
 	private Player player;
 	
+	private float turnTime = .25f;
+	
 	static Map<Keys, Boolean> keys = new HashMap<playerController.Keys, Boolean>();
 	static {
 		keys.put(Keys.JUMP, false);
@@ -62,16 +64,18 @@ public class playerController {
 			System.out.println(gameScreen.elapsedTime);
 		}
 		
-		if(keys.get(Keys.TURN) && gameScreen.elapsedTime > 1f && player.getVelocity().x > 0f){
+		if(keys.get(Keys.TURN) && gameScreen.elapsedTime > turnTime && player.getVelocity().x > 0f){
 			player.setState(State.TURNING);
 			player.getVelocity().x = -(Player.SPEED);
 			System.out.println(player.getVelocity().x);
+			buttonHeldRelease();
 		}
 		
-		if(keys.get(Keys.TURN) && gameScreen.elapsedTime > 1f && player.getVelocity().x < 0f){
+		if(keys.get(Keys.TURN) && gameScreen.elapsedTime > turnTime && player.getVelocity().x < 0f){
 			player.setState(State.TURNING);
 			player.getVelocity().x = (Player.SPEED);
 			System.out.println(player.getVelocity().x);
+			buttonHeldRelease();
 		}
 	}
 	
