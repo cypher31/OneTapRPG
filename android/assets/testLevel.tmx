@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="32" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="tileSet" tilewidth="32" tileheight="32">
+  <image source="tileSet.png" trans="ff00ff" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="65" name="tiles01" tilewidth="32" tileheight="32">
+  <image source="D:/Users/Desktop/Developing/LibGDX projects/StoneGate/android/assets/Maps/tiles01.png" trans="ff00ff" width="320" height="480"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzVVosKwyAQ66/5/z81xigMuUcSo6UBYdW7XKKn7Lp+GNdziGqP4LdT4wiGksPk3xzd/A6//9zMQLmy9Sp3jnH7ZbwNMif67rTMcQ6/szbk/Nh+dQxUG4vsHLu5io/14bpPKpSe6vp5nncOB1Au1VcWG31XdZFeQrFaM4qp8jNOVSfzDkS9iWhBYrv9mNcyoHtY5Sk9iJyRei/VPd2dw3hwc1VA9hLR6tLMcFVeWLi07xiM/id97qpTeWH9djGd/myty6vi59zKSwelZypf7p5A6iBemfuB1No9VnwoPrt19l64/CJ+0P7t4NLO9kmnwY2qhlK7u79VDjqvAn0rlPchmkdjuzwFc98h3GgvZrXmWFTnyjlnPRvpQjSg/RHV3onqTP6/V/iquFM+75rZnOoXyTnts6rLvqEdf8d9Gsw928X/FNT/Fsx4Axw63+T3i9WedvCchMvvKleEDxJUvKg=
+  </data>
+ </layer>
+</map>
