@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -275,13 +276,13 @@ public class worldRenderer implements InputProcessor {
 				Gdx.files.internal("atlas2.pack"));
 
 		/* Standing */
-		playerIdleLeft = atlas.findRegion("2");
+		playerIdleLeft = atlas.findRegion("0");
 
 		playerIdleRight = new TextureRegion(playerIdleLeft);
 		playerIdleRight.flip(true, false);
 
 		// Just loading texture to get width and height for bounding box
-		playerWalkRight = atlas.findRegion("1");
+		playerWalkRight = atlas.findRegion("0");
 		playerWalkLeft = new TextureRegion(playerWalkRight);
 		playerWalkLeft.flip(true, false);
 
@@ -311,8 +312,8 @@ public class worldRenderer implements InputProcessor {
 		playerFallLeft = new TextureRegion(playerFallRight);
 		playerFallLeft.flip(true, false);
 
-		enemyFrame = new TextureRegion(new Texture("enemy0.png"));
-		enemyFrame.flip(true, false);
+//		enemyFrame = new TextureRegion(new Texture("enemy0.png"));
+//		enemyFrame.flip(true, false);
 	}
 
 //	public void loadEnemies() {
@@ -391,9 +392,10 @@ public class worldRenderer implements InputProcessor {
 //	}
 
 	public void drawDebug() {
-
+		debugRenderer.setAutoShapeType(true);
 		
-
+		debugRenderer.begin();
+		
 		debugRenderer.setColor(new Color(0, 1, 0, 1));
 
 		debugRenderer.rect(player.getPosition().x, player.getPosition().y,
